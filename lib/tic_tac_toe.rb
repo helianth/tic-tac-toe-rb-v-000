@@ -95,24 +95,25 @@ end
 
 
 def over?(board)
-  if full?(board) == true || won?(board) != nil
+  if full?(board) || won?(board) || draw?(board) || (won?(board) && full?(board))
     true
-  else nil
+  else false
   end
 end
 
 def winner(board)
   if won?(board) != nil
     winner = board[won?(board)[0]]
+  else nil
   end
 end
 
 def play(board)
-  turn(board) until over(board) == true
-  if draw?(board) == true
-    puts "Cat's Game!"
+  until over?(board)
+    turn(board)
+  end
+  if draw?(board) puts "Cat's Game!"
   elsif
     puts "Congratulations #{winner(board)}!"
   end
 end
-
