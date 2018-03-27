@@ -109,7 +109,6 @@ end
 
 def play(board)
   turn(board) until over(board) == true
-  end
   if draw?(board) == true
     puts "Cat's Game!"
   elsif
